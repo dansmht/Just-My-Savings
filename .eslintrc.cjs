@@ -12,4 +12,5 @@ module.exports = {
   env: {
     "vue/setup-compiler-macros": true,
   },
+  ignorePatterns: ["src/dts/*.d.ts"],
 };
