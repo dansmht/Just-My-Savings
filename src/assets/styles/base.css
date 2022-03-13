@@ -1,6 +1,10 @@
 @layer base {
   html,
   body {
-    height: 100%;
+    @apply h-full;
+  }
+
+  html {
+    font-family: Roboto, sans-serif;
   }
 }
