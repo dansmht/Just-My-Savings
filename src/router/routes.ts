@@ -6,33 +6,41 @@ const AddNewGoalPage = () => import("@/pages/AddNewGoalPage.vue");
 const AddNewCardPage = () => import("@/pages/AddNewCardPage.vue");
 const SettingsPage = () => import("@/pages/SettingsPage.vue");
 
+export const ROUTE_PATHS = {
+  myGoals: "/my-goals",
+  myCards: "/my-cards",
+  newGoal: "/new-goal",
+  newCard: "/new-card",
+  settings: "/settings",
+};
+
 export const routes: RouteRecordRaw[] = [
   {
     path: "/",
-    redirect: "/my-goals",
+    redirect: ROUTE_PATHS.myGoals,
   },
   {
-    path: "/my-goals",
+    path: ROUTE_PATHS.myGoals,
     name: "MyGoals",
     component: MyGoalsPage,
   },
   {
-    path: "/my-cards",
+    path: ROUTE_PATHS.myCards,
     name: "MyCards",
     component: MyCardsPage,
   },
   {
-    path: "/new-goal",
+    path: ROUTE_PATHS.newGoal,
     name: "AddNewGoal",
     component: AddNewGoalPage,
   },
   {
-    path: "/new-card",
+    path: ROUTE_PATHS.newCard,
     name: "AddNewCard",
     component: AddNewCardPage,
   },
   {
-    path: "/settings",
+    path: ROUTE_PATHS.settings,
     name: "Settings",
     component: SettingsPage,
   },
