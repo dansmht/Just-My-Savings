@@ -1,7 +1,7 @@
 <template>
   <ul class="flex flex-col items-center gap-x-8 gap-y-2 sm:flex-row">
     <li v-for="item in navLinkItems" :key="item.title">
-      <RouterLink :to="item.to" custom v-slot="{ href, isActive, navigate }">
+      <RouterLink :to="item.to" v-slot="{ href, isActive, navigate }" custom>
         <a
           class="flex items-center gap-2 transition-colors hover:text-slate-100 focus:text-slate-100"
           :class="`text-slate-${isActive ? '100' : '500'}`"

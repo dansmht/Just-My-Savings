@@ -16,8 +16,3 @@
     </AppContainer>
   </header>
 </template>
-
-<script setup lang="ts">
-import AppContainer from "@/components/shared/AppContainer/AppContainer.vue";
-import NavigationList from "@/components/AppHeader/NavigationList/NavigationList.vue";
-</script>
