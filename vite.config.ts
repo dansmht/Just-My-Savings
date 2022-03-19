@@ -31,10 +31,14 @@ export default defineConfig({
   },
 
   test: {
+    globals: true,
     include: ["src/components/**/*.test.ts"],
     environment: "jsdom",
     deps: {
       inline: ["@vue"],
+    },
+    coverage: {
+      reporter: ["text", "json", "html"],
     },
   },
 });
