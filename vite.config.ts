@@ -11,7 +11,7 @@ export default defineConfig({
     vue(),
 
     AutoImport({
-      imports: ["vue", "vue-router"],
+      imports: ["vue", "vue-router", "@vueuse/core"],
       dts: "src/dts/auto-imports.d.ts",
     }),
 
@@ -27,7 +27,7 @@ export default defineConfig({
   },
 
   optimizeDeps: {
-    include: ["vue", "vue-router"],
+    include: ["vue", "vue-router", "@vueuse/core"],
   },
 
   test: {
@@ -35,7 +35,7 @@ export default defineConfig({
     include: ["src/components/**/*.test.ts"],
     environment: "jsdom",
     deps: {
-      inline: ["@vue"],
+      inline: ["@vue", "@vueuse"],
     },
     coverage: {
       reporter: ["text", "json", "html"],
