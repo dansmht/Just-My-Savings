@@ -1,1 +1,3 @@
-<template>My Cards</template>
+<template>
+  <CustomCardList />
+</template>
