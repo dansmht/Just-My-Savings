@@ -90,6 +90,8 @@ const onSavingsInputFocus = () => {
 };
 
 const onSavingsInputBlur = () => {
-  cardSavings.value = Number(cardSavings.value).toLocaleString();
+  cardSavings.value = Number(
+    cardSavings.value.replace(/\s+/g, "")
+  ).toLocaleString();
 };
 </script>
