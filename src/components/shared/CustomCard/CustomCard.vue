@@ -54,6 +54,7 @@
 
 <script setup lang="ts">
 import { useFilterStringRef } from "@/composables/useFilterStringRef";
+import { removeSpaces } from "@/utils/removeSpaces";
 
 interface Props {
   title: string;
@@ -86,12 +87,10 @@ const onSavingsChange = () => {
 };
 
 const onSavingsInputFocus = () => {
-  cardSavings.value = cardSavings.value.replace(/\s+/g, "");
+  cardSavings.value = removeSpaces(cardSavings.value);
 };
 
 const onSavingsInputBlur = () => {
-  cardSavings.value = Number(
-    cardSavings.value.replace(/\s+/g, "")
-  ).toLocaleString();
+  cardSavings.value = Number(removeSpaces(cardSavings.value)).toLocaleString();
 };
 </script>

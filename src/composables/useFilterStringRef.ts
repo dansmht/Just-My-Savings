@@ -1,5 +1,7 @@
 import type { Ref } from "vue";
 
+import { removeMultiSpaces, removeSpaces } from "@/utils/removeSpaces";
+
 type filterOptions = {
   letters?: boolean;
   digits?: boolean;
@@ -31,7 +33,7 @@ export const useFilterStringRef = (
   }
 
   watch(ref, (value, prevVal) => {
-    if (prevVal === value.replace(/\s+/g, "")) {
+    if (prevVal === removeSpaces(value)) {
       return;
     }
 
@@ -42,7 +44,7 @@ export const useFilterStringRef = (
     }
 
     if (options.spaces) {
-      newValue = newValue.replace(/\s+/g, " ");
+      newValue = removeMultiSpaces(newValue);
     }
 
     newValue = newValue.replace(finalRegexp, "$1");
