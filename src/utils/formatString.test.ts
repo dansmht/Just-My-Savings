@@ -1,4 +1,5 @@
 import {
+  addThousandSeparators,
   removeExtraSymbols,
   removeMultiSpaces,
   removeNonDigitSymbols,
@@ -45,6 +46,21 @@ describe("format string helpers", () => {
       expect(removeExtraSymbols("Test", -6)).toBe("Test");
       expect(removeExtraSymbols("Test", 6.6)).toBe("Test");
       expect(removeExtraSymbols("Test", -6.6)).toBe("Test");
+    });
+  });
+
+  describe("addThousandSeparators", () => {
+    it("should add thousand separators to number and string that could be converted to number", () => {
+      expect(addThousandSeparators(0)).toBe("0");
+      expect(addThousandSeparators(1234)).toBe("1 234");
+      expect(addThousandSeparators("1234567890")).toBe("1 234 567 890");
+      expect(addThousandSeparators("   1234567890   ")).toBe("1 234 567 890");
+      expect(addThousandSeparators(1234.1235)).toBe("1 234,124");
+      expect(addThousandSeparators("1234.1234")).toBe("1 234,123");
+      expect(addThousandSeparators(-1000)).toBe("-1 000");
+      expect(addThousandSeparators("Test")).toBe("Test");
+      expect(addThousandSeparators(1e3)).toBe("1 000");
+      expect(addThousandSeparators("1e3")).toBe("1 000");
     });
   });
 });

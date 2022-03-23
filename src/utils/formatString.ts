@@ -15,3 +15,19 @@ export const removeExtraSymbols = (value: string, maxLength: number) => {
 
   return value.replace(regexp, "$1");
 };
+
+export const addThousandSeparators = (value: number | string) => {
+  let num: number;
+
+  if (typeof value === "number") {
+    num = value;
+  } else {
+    num = Number(value);
+
+    if (isNaN(num)) {
+      return value;
+    }
+  }
+
+  return num.toLocaleString("ru").replace(/\s+/g, " ");
+};
