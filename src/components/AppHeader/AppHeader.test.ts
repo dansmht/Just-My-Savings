@@ -13,7 +13,7 @@ describe("AppHeader Component", () => {
     expect(wrapper).toBeTruthy();
   });
 
-  it("should have header tag", () => {
-    expect(wrapper.find("header").exists()).toBeTruthy();
+  it("should have header element", () => {
+    expect(wrapper.get("header")).toBeTruthy();
   });
 });
