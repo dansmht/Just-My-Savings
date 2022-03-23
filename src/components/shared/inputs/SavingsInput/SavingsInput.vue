@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { useFilterSavings } from "@/composables/useFilterStringRef";
+import { useFilterSavings } from "@/composables/useFilterSavings";
 import { removeSpaces } from "@/utils/formatString";
 
 interface Props {
