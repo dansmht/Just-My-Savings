@@ -16,7 +16,8 @@
     <input
       class="absolute left-0 w-full border-2 border-dotted border-transparent bg-inherit px-0.5 py-0 hover:border-slate-100 focus-visible:border-slate-100 focus-visible:outline-none"
       type="text"
-      v-model="modelVal"
+      :value="modelVal"
+      @input="modelVal = $event.target.value"
       @focus="onFocus"
       @blur="onBlur"
       @keydown.space.prevent
@@ -26,7 +27,7 @@
 
 <script setup lang="ts">
 import { useFilterSavings } from "@/composables/useFilterSavings";
-import { removeSpaces } from "@/utils/formatString";
+import { addThousandSeparators, removeSpaces } from "@/utils/formatString";
 
 interface Props {
   modelValue: number;
@@ -37,7 +38,7 @@ const emit = defineEmits<{
   (e: "update:modelValue", value: number): void;
 }>();
 
-const modelVal = ref(props.modelValue.toLocaleString());
+const modelVal = ref(addThousandSeparators(props.modelValue));
 
 useFilterSavings(modelVal);
 
@@ -48,6 +49,6 @@ const onFocus = () => {
 const onBlur = () => {
   emit("update:modelValue", Number(modelVal.value));
 
-  modelVal.value = Number(modelVal.value).toLocaleString();
+  modelVal.value = addThousandSeparators(modelVal.value);
 };
 </script>
