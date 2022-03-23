@@ -1,10 +1,7 @@
 <template>
   <ul>
     <li v-for="card in cards" :key="card.id">
-      <CustomCard
-        v-model:title.trim="card.title"
-        v-model:savings.number="card.savings"
-      />
+      <CustomCard v-model:savings="card.savings" :title="card.title" />
     </li>
   </ul>
 </template>
