@@ -14,6 +14,7 @@ declare module 'vue' {
     MyCardsIcon: typeof import('./../components/icons/MyCardsIcon.vue')['default']
     MyGoalsIcon: typeof import('./../components/icons/MyGoalsIcon.vue')['default']
     NavigationList: typeof import('./../components/AppHeader/NavigationList/NavigationList.vue')['default']
+    SavingsInput: typeof import('./../components/shared/inputs/SavingsInput/SavingsInput.vue')['default']
     SettingsIcon: typeof import('./../components/icons/SettingsIcon.vue')['default']
   }
 }
