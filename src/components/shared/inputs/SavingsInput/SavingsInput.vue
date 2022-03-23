@@ -11,13 +11,12 @@
     <span
       class="invisible whitespace-pre px-1"
       aria-hidden="true"
-      v-text="modelVal"
+      v-text="modelRef"
     />
     <input
       class="absolute left-0 w-full border-2 border-dotted border-transparent bg-inherit px-0.5 py-0 hover:border-slate-100 focus-visible:border-slate-100 focus-visible:outline-none"
       type="text"
-      :value="modelVal"
-      @input="modelVal = $event.target.value"
+      v-model="modelRef"
       @focus="onFocus"
       @blur="onBlur"
       @keydown.space.prevent
@@ -38,17 +37,17 @@ const emit = defineEmits<{
   (e: "update:modelValue", value: number): void;
 }>();
 
-const modelVal = ref(addThousandSeparators(props.modelValue));
+const modelRef = ref(addThousandSeparators(props.modelValue));
 
-useFilterSavings(modelVal);
+useFilterSavings(modelRef);
 
 const onFocus = () => {
-  modelVal.value = removeSpaces(modelVal.value);
+  modelRef.value = removeSpaces(modelRef.value);
 };
 
 const onBlur = () => {
-  emit("update:modelValue", Number(modelVal.value));
+  emit("update:modelValue", Number(modelRef.value));
 
-  modelVal.value = addThousandSeparators(modelVal.value);
+  modelRef.value = addThousandSeparators(modelRef.value);
 };
 </script>
